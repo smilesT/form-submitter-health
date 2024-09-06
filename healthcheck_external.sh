@@ -2,7 +2,7 @@
 
 HEALTH_URL="https://flux.milesguard.com/health"
 EMAIL="miles@milesguard.com"
-DEBUG=1
+# DEBUG=1
 
 # Function to send an alert email
 # This function is responsible for sending an email with "passed" or "failed" in the subject.
@@ -36,9 +36,9 @@ check_health() {
 
     if [[ "$status" == "healthy" ]]; then
         echo "[$timestamp] Health check passed. URL: $HEALTH_URL"
-        if [[ $DEBUG -eq 1 ]]; then
-            send_alert_email "passed" "[$timestamp] DEBUG: Healthcheck passed. Status: $status. URL: $HEALTH_URL"
-        fi
+        # if [[ $DEBUG -eq 1 ]]; then
+        #     send_alert_email "passed" "[$timestamp] DEBUG: Healthcheck passed. Status: $status. URL: $HEALTH_URL"
+        # fi
     else
         echo "[$timestamp] Health check FAILED. Status: $status. URL: $HEALTH_URL"
         send_alert_email "failed" "[$timestamp] Healthcheck failed. Status: $status. URL: $HEALTH_URL"
